@@ -9,6 +9,7 @@ from data_pull import STOCKS
 
 def get_earnings_data(ticker):
     stock = yf.Ticker(ticker)
+    # Get stock info (open, close, dates, etc.) in a dataframe 
     earnings = stock.earnings_dates
     earnings = earnings.dropna(subset = ['EPS Estimate', 'Reported EPS'])
 
