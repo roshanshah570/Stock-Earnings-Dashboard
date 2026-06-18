@@ -21,6 +21,10 @@ python app.py
 The data shows near-zero correlation (r = -0.0) between how much a company beat earnings expectations (Surprise %) and how much its stock moved that day (% Change). This means beating expectations doesn't move the stock price, because professional investors have already bought the stock weeks before based on their own predictions. This is important as it affect many people investing in stocks today and could change their investment practices.
 Additionally, the Energy sector showed the highest average EPS surprise %. This may reflect how analysts consistently underestimate energy demand, especially as AI and data centers become increasingly energy-intensive. Energy is a vital but often overlooked resource, and as AI grows, the gap between analyst forecasts and actual energy company performance may continue to widen.
 
+## Dashboard Review (Visualizations)
+
+![Dashboard](dashboard.png)
+![Dashboard](dashboard1.png)
 
 ## Stack
 Python · Pandas · Plotly Dash · yfinance
