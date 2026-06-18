@@ -4,7 +4,6 @@ Pulls 2 years of historical data for 20 stocks across 4 sectors using yfinance A
 Used as data foundation for earnings analysis and dashboard visualizations.
 '''
 
-from distro import info
 import yfinance as yf
 import pandas as pd
 
