@@ -33,7 +33,7 @@ def get_price_reaction(ticker):
             "Surprise %": earnings.loc[date, 'surprise_pct']
         })
         
-    # Add all information from each stock into one, cohesive dataframe
+    # Add information about stock into one, cohesive dataframe
     return pd.DataFrame(results)
 
 # Test to make sure get_price_reaction works
