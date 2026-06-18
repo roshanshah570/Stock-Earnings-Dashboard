@@ -31,4 +31,4 @@ def get_price_reaction(ticker):
     return pd.DataFrame(results)
 
 # Test to make sure get_price_reaction works
-print(get_price_reaction("AAPL"))
+#print(get_price_reaction("AAPL"))
