@@ -1,6 +1,9 @@
 '''
-Stocks Earnings Dashboard - Main Application
-Interactive Plotly Dash dashboard displaying earnings surprise % vs stock price reaction
+Stock Earnings Dashboard — Main Application
+
+Combines earnings-surprise and price-reaction data for all 20 tickers
+across 4 sectors, then serves an interactive Plotly Dash dashboard
+showing the correlation between EPS Surprise % and Price Reaction %.
 '''
 
 import dash

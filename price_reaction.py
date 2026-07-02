@@ -1,13 +1,21 @@
 '''
-Stock Earnings Dashboard - Price Reaction Analysis
-Calculates the price move around earnings
+Stock Earnings Dashboard — Price Reaction Analysis
+
+Pairs each earnings date from earnings.py with its pre and post-earnings
+trading days from data_pull.py, calculating the resulting price move
+("Price Reaction %") for comparison against EPS Surprise %.
 '''
 
 import yfinance as yf
 import pandas as pd
 from data_pull import STOCKS, get_stock_info
 from earnings import get_earnings_data
+'''
+Get price reaction data (how much a stock moved, pre and post-earnings trading days) in a dataframe
 
+param ticker: stock ticker symbol (e.g. AAPL, MSFT, etc.)
+return: price reaction data (pre and post-earnings trading days, price reaction %, EPS surprise %)
+'''
 def get_price_reaction(ticker):
     results = []
     stock = yf.Ticker(ticker)
@@ -18,10 +26,18 @@ def get_price_reaction(ticker):
     for date in earnings.index:
         idx = hist.index.searchsorted(date)
         if idx == 0 or idx >= len(hist):
-            continue  # Skip if earnings date is out of historical data range
-        day_before = hist.iloc[idx - 1]
-        day_after = hist.iloc[idx]
+            continue # skip if earnings date is outside of historical data range
+        if date.hour >= 12:  # AMC: reported after market close
+            day_before = hist.iloc[idx - 1]
+            day_after = hist.iloc[idx]
+        else:  # BMO: reported before market open
+            if idx - 2 < 0:
+                continue
+            day_before = hist.iloc[idx - 2]
+            day_after = hist.iloc[idx - 1]
+
         pct_change = (day_after['Close'] - day_before['Close']) / day_before['Close'] * 100
+
         results.append({
             "Ticker": ticker,
             "Earnings Date": date,
@@ -30,5 +46,7 @@ def get_price_reaction(ticker):
         })
     return pd.DataFrame(results)
 
-# Test to make sure get_price_reaction works
-#print(get_price_reaction("AAPL"))
+# Test to make sure get_price_reaction returns correctly formatted dataframe
+print(get_price_reaction("AAPL"))
+
+

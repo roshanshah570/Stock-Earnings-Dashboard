@@ -4,7 +4,6 @@ Pulls 2 years of historical data for 20 stocks across 4 sectors using yfinance A
 Used as data foundation for earnings analysis and dashboard visualizations.
 '''
 
-from distro import info
 import yfinance as yf
 import pandas as pd
 
@@ -15,7 +14,12 @@ STOCKS  = {
     "Consumer Defensive": ["WMT", "PG", "KO", "COST", "MDLZ"]
 }
 
+'''
+Get stock info (open, close, dates, etc.) in a dataframe
 
+param ticker: stock ticker symbol (e.g. AAPL, MSFT, etc.)
+return: historical stock data (2 years) and stock info (company name, sector, etc.)
+'''
 def get_stock_info(ticker):
     stock = yf.Ticker(ticker)
     hist = stock.history(period="2y")
@@ -23,8 +27,8 @@ def get_stock_info(ticker):
     return hist, info
 
 # Test to make sure get_stock_info works
-#hist, info = get_stock_info("AAPL")
-#print(f"Company: {info.get('longName')}")
-#print(f"Sector:  {info.get('sector')}")
-#print(f"Rows:    {len(hist)}")
-#print(hist.head())
+hist, info = get_stock_info("AAPL")
+# print(f"Company: {info.get('longName')}")
+# print(f"Sector:  {info.get('sector')}")
+# print(f"Rows:    {len(hist)}")
+# print(hist.head())
