@@ -15,6 +15,7 @@ from price_reaction import get_price_reaction
 
 all_data = []
 
+# Loop through each sector and ticker, pulling price reaction data
 for sector, tickers in STOCKS.items():
     for ticker in tickers:
         try:
@@ -24,14 +25,17 @@ for sector, tickers in STOCKS.items():
                 all_data.append(df)
         except Exception as e:
             print(f"Skipping {ticker}: {e}")
-
+            
+# Combine all stocks' information into one dataframe, or return empty if none loaded
 if all_data:
     df_all = pd.concat(all_data, ignore_index=True)
 else:
     df_all = pd.DataFrame(columns=["Ticker", "Earnings Date", "Price Reaction %", "Surprise %", "Sector"])
 
+# Calculate relationship between beating expectations and price movement of stock
 corr = df_all["Surprise %"].corr(df_all["Price Reaction %"]).round(2)
 
+# Creating interactive dashboard
 app = dash.Dash(__name__)
 
 app.layout = html.Div([

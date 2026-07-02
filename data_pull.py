@@ -27,8 +27,8 @@ def get_stock_info(ticker):
     return hist, info
 
 # Test to make sure get_stock_info works
-hist, info = get_stock_info("AAPL")
-# print(f"Company: {info.get('longName')}")
-# print(f"Sector:  {info.get('sector')}")
-# print(f"Rows:    {len(hist)}")
-# print(hist.head())
+#hist, info = get_stock_info("AAPL")
+#print(f"Company: {info.get('longName')}")
+#print(f"Sector:  {info.get('sector')}")
+#print(f"Rows:    {len(hist)}")
+#print(hist.head())
