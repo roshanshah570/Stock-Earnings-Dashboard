@@ -37,6 +37,7 @@ corr = df_all["Surprise %"].corr(df_all["Price Reaction %"]).round(2)
 
 # Creating interactive dashboard
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.H1("Stock Earnings Surprise Dashboard", 

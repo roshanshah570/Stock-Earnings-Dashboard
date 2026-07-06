@@ -4,3 +4,5 @@ plotly
 pandas
 yfinance
 lxml
+gunicorn
+requests

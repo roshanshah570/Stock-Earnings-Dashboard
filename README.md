@@ -21,6 +21,9 @@ python app.py
 - The data shows a weak positive correlation (r = 0.19) between EPS surprise % and price reaction % across the 20-stock sample. Larger earnings beats are associated with more positive price reactions, but the relationship is weak. This suggests that while surprises do move prices to some degree, much of the reaction is likely driven by other factors, (forward guidance, broader market conditions, sector trends) not fully captured by surprise percent alone. This is consistent with prior research on earnings announcements and market efficiency, where surprise magnitude is one factor among many and not a dominant predictor.
 - (Note: earlier versions of this analysis reported a near-zero correlation. That result was affected by a data quality issue — an extreme outlier from a near-zero EPS estimate — and an indexing bug that mismeasured the price reaction window for stocks reporting before market open. Both have been corrected.)
 
+# Live Deployment
+https://market-earnings-monitor-732893358511.us-central1.run.app
+
 ## Stack
 Python · Pandas · Plotly Dash · yfinance
 
