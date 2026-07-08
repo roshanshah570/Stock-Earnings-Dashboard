@@ -25,10 +25,3 @@ def get_stock_info(ticker):
     hist = stock.history(period="2y")
     info = stock.info 
     return hist, info
-
-# Test to make sure get_stock_info works
-#hist, info = get_stock_info("AAPL")
-#print(f"Company: {info.get('longName')}")
-#print(f"Sector:  {info.get('sector')}")
-#print(f"Rows:    {len(hist)}")
-#print(hist.head())
