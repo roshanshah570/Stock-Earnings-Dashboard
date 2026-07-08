@@ -28,5 +28,3 @@ def get_earnings_data(ticker):
     earnings['Ticker'] = ticker
     return earnings
 
-# get_earnings_data function test case
-# print(get_earnings_data("VLO"))
