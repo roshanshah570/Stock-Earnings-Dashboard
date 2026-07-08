@@ -50,8 +50,3 @@ def get_price_reaction(ticker):
         
     # Add information about stock into one, cohesive dataframe
     return pd.DataFrame(results)
-
-# Test to make sure get_price_reaction returns correctly formatted dataframe
-# print(get_price_reaction("AAPL"))
-
-
